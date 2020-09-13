@@ -1,0 +1,14 @@
+{
+  "name": "temp-ts",
+  "version": "0.1.0",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "scripts": {
+    "dev": "utils-lib-scripts dev",
+    "build": "utils-lib-scripts build",
+    "doc": "utils-lib-scripts doc"
+  },
+  "dependencies": {
+    "utils-lib-scripts": "^0.0.1"
+  }
+}

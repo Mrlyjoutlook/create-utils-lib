@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "create-utils-lib",
+  "workspaces": [
+    "packages/*"
+  ],
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "script-dev": "yarn workspace utils-lib-scripts dev",
+    "create-dev": "yarn workspace create-utils-lib dev"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}
