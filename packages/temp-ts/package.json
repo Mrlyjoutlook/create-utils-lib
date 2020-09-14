@@ -9,6 +9,9 @@
     "doc": "utils-lib-scripts doc"
   },
   "dependencies": {
-    "utils-lib-scripts": "^0.0.1"
+    "@create-utils-lib/scripts": "^0.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.2"
   }
 }
