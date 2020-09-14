@@ -1,10 +1,10 @@
-import gulp from "gulp";
-import "../tasks";
+import { task } from 'gulp';
+import '../tasks';
 
-process.env.NODE_ENV = "production";
+process.env.NODE_ENV = 'production';
 
 export default function () {
-  gulp.task("build")((err) => {
-    console.log("err", err);
+  task('build')((err) => {
+    console.log('err', err);
   });
 }

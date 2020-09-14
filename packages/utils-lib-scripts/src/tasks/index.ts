@@ -1,6 +1,8 @@
-import gulp from "gulp";
-import build from "./build";
-// import dev from "./dev";
+import { task } from 'gulp';
+import build from './build';
+import dev from './dev';
+import clean from './clean';
 
-gulp.task(build);
-// gulp.task(dev);
+task(build);
+task(dev);
+task(clean);

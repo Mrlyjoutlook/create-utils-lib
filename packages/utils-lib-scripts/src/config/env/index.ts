@@ -1,8 +1,7 @@
-import dev from "./dev";
-import prod from "./prod";
-
-const isProd = process.env.NODE_ENV === "production";
+import dev from './dev';
+import prod from './prod';
 
 export default {
-  ...(isProd ? prod : dev),
+  dev,
+  prod,
 };

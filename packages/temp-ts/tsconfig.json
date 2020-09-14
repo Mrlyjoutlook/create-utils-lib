@@ -10,14 +10,12 @@
     "allowJs": false,
     "strict": true,
     "sourceMap": false,
+    "declaration": false,
     "resolveJsonModule": true,
     "lib": ["esnext"],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"],
-      "*": ["types/*"]
-    },
-    "rootDir": "./src",
-    "outDir": "./lib"
+      "@/*": ["src/*"]
+    }
   }
 }

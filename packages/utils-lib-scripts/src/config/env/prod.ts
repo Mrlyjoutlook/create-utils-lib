@@ -1,3 +1,1 @@
-export default {
-  prod: true,
-};
+export default {};

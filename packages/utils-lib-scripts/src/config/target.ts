@@ -27,14 +27,14 @@
 //   prefix: target === 'commonjs' ? null : `-${target}`,
 // };
 
-import path from "path";
-import fse from "fs-extra";
-import base from "./base";
+import path from 'path';
+import fse from 'fs-extra';
+import base from './base';
 
 let tsconfig = {
-  target: "ES5",
-  module: "commonjs",
-  moduleResolution: "Node",
+  target: 'ES5',
+  module: 'commonjs',
+  moduleResolution: 'Node',
   importHelpers: true,
   esModuleInterop: true,
   allowSyntheticDefaultImports: true,
@@ -43,20 +43,18 @@ let tsconfig = {
   sourceMap: false,
   declaration: false,
   resolveJsonModule: true,
-  lib: ["esnext"],
-  baseUrl: "./",
+  lib: ['esnext'],
+  baseUrl: './',
   paths: {
-    "@/*": ["src/*"],
+    '@/*': ['src/*'],
   },
 };
 
-const target = process.env.target || tsconfig.module || "commonjs";
+const target = process.env.target || tsconfig.module || 'commonjs';
 
-const exit = fse.pathExistsSync(path.resolve(base.cwd, "tsconfig.json"));
+const exit = fse.pathExistsSync(path.resolve(base.cwd, 'tsconfig.json'));
 if (exit) {
-  const tsconfigJson = fse.readJSONSync(
-    path.resolve(base.cwd, "tsconfig.json")
-  );
+  const tsconfigJson = fse.readJSONSync(path.resolve(base.cwd, 'tsconfig.json'));
   tsconfig = { ...tsconfig, ...tsconfigJson.compilerOptions };
 }
 

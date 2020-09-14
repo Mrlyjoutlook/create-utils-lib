@@ -1,14 +1,16 @@
-import path from "path";
+import path from 'path';
+import target from './target';
 
 const cwd = process.cwd();
 
 export default {
   cwd,
-  pkg: "package.json",
-  esTemp: path.join(cwd, "temp"),
-  esdoc: path.join(cwd, "esdoc"),
-  src: path.join(cwd, "src"),
-  dist: path.join(cwd, "dist"),
+  pkg: 'package.json',
+  esTemp: path.join(cwd, 'temp'),
+  esdoc: path.join(cwd, 'esdoc'),
+  src: path.join(cwd, 'src'),
+  dist: path.join(cwd, 'dist', target.tsconfig.module),
+  types: path.join(cwd, 'types'),
 };
 
 // const distCwd = process.cwd();

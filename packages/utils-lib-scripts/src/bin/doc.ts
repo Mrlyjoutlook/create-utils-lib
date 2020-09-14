@@ -1,8 +1,8 @@
-import gulp from "gulp";
-import "../tasks";
+import { task } from 'gulp';
+import '../tasks';
 
 export default function () {
-  gulp.task("doc")((err) => {
-    console.log("err", err);
+  task('doc')((err) => {
+    console.log('err', err);
   });
 }

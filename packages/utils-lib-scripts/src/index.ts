@@ -1,16 +1,14 @@
-import commander from "commander";
-import build from "./bin/build";
-import dev from "./bin/dev";
+#!/usr/bin/env node
+import { program } from 'commander';
+import build from './bin/build';
+import dev from './bin/dev';
 
-const pkg = require("../package.json");
+const pkg = require('../package.json');
 
-commander.version(pkg.version, "-v, --version");
+program.version(pkg.version, '-v, --version');
 
-commander.command("dev").description("build doc and watch reload").action(dev);
+program.command('dev').description('build doc and watch reload').action(dev);
 
-commander
-  .command("build")
-  .description("build file to dist and copy to publish branch")
-  .action(build);
+program.command('build').description('build file to dist and copy to publish branch').action(build);
 
-commander.parse(process.argv);
+program.parse(process.argv);
