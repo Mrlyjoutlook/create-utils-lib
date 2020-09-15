@@ -1,25 +1,27 @@
-import { watch, series, parallel, src } from 'gulp';
+import { watch, series, src } from 'gulp';
 import connect from 'gulp-connect';
-import config from '../config';
+import { build, esdoc } from '../tasks';
+import * as config from '../config';
 
-function server() {
+export function server() {
   return connect.server({
     ...config.env.dev.connect,
     root: config.esdoc.destination,
   });
 }
 
-function watchFiles() {
-  return watch(config.base.src, series('build', 'esdoc'));
+export function watchSrcFiles() {
+  return watch(config.base.src, build);
 }
 
-function livereload() {
-  return watch(config.esdoc.destination, () => src(config.base.dist).pipe(connect.reload()));
+export function watchFiles() {
+  return watch(config.base.src, series(build, esdoc));
 }
 
-function dev() {
-  return series('build', 'esdoc', parallel(server, watchFiles, livereload));
-  // return series('build');
+export function livereload() {
+  return watch(config.esdoc.destination, function () {
+    return src(config.target.useTypeScript() ? config.base.esTemp : config.base.dist).pipe(
+      connect.reload(),
+    );
+  });
 }
-
-export default dev;

@@ -1,4 +1,4 @@
-import addZero from "./addZero";
+import addZero from './addZero';
 
 export default {
   addZero,

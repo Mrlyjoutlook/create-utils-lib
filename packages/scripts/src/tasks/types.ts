@@ -1,16 +1,14 @@
 import { src, dest } from 'gulp';
 import { createProject } from 'gulp-typescript';
-import config from '../config';
+import { base, target } from '../config';
 
 function types() {
-  if (config.base.useTypeScript) {
+  if (target.useTypeScript()) {
     const tsProject = createProject({
-      ...config.target.tsconfig,
+      ...target.getTSConfig(),
       declaration: true,
     });
-    return src('src/**/**/*', { base: config.base.src })
-      .pipe(tsProject())
-      .dts.pipe(dest(config.base.types));
+    return src('src/**/**/*', { base: base.src }).pipe(tsProject()).dts.pipe(dest(base.types));
   } else {
     return Promise.resolve();
   }

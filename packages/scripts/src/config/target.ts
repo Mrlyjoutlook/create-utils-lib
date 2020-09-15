@@ -1,32 +1,3 @@
-// const path =require('path');
-// const fs = require('fs-extra');
-// const base = require('./base');
-
-// let tsconfig = {
-//   "alwaysStrict": true,
-//   "target": "es6",
-//   "moduleResolution": "node",
-//   "allowSyntheticDefaultImports": true,
-//   "declaration": false,
-//   "sourceMap": false,
-//   "importHelpers": true,
-//   "baseUrl": ".",
-// };
-// const configName = 'tsconfig.json';
-// const exists = fs.pathExistsSync(path.resolve(base.distCwd, configName));
-// if (exists) {
-//   const tsconfigJson = require(path.join(base.distCwd, configName));
-//   tsconfig = { ...tsconfig, ...tsconfigJson.compilerOptions };
-// }
-
-// const target = process.env.target || tsconfig.module || 'commonjs';
-
-// module.exports = {
-//   tsconfig: { ...tsconfig, module: target },
-//   branch: `publish/${target}`,
-//   prefix: target === 'commonjs' ? null : `-${target}`,
-// };
-
 import path from 'path';
 import fse from 'fs-extra';
 import base from './base';
@@ -50,17 +21,24 @@ let tsconfig = {
   },
 };
 
-const target = process.env.target || tsconfig.module || 'commonjs';
+export function getTSConfig() {
+  const exit = fse.pathExistsSync(path.resolve() + '/tsconfig.json');
 
-// const exit = fse.pathExistsSync(path.resolve(base.cwd, 'tsconfig.json'));
-// if (exit) {
-//   const tsconfigJson = fse.readJSONSync(path.resolve(base.cwd, 'tsconfig.json'));
-//   tsconfig = { ...tsconfig, ...tsconfigJson.compilerOptions };
-// }
+  if (exit) {
+    const tsconfigJson = fse.readJSONSync(path.resolve() + '/tsconfig.json');
+    tsconfig = {
+      ...tsconfig,
+      ...tsconfigJson.compilerOptions,
+    };
+  }
 
-export default {
-  tsconfig: {
+  return {
     ...tsconfig,
-    module: target,
-  },
-};
+    module: process.env.target || tsconfig.module || 'commonjs',
+  };
+}
+
+export function useTypeScript(): boolean {
+  const packageJson = fse.readJSONSync(path.resolve(base.cwd, 'package.json'));
+  return packageJson.devDependencies['typescript'] !== null;
+}

@@ -1,9 +1,10 @@
 "use strict";
-// const path =require('path');
-// const fs = require('fs-extra');
-// const base = require('./base');
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.useTypeScript = exports.getTSConfig = void 0;
 var tslib_1 = require("tslib");
+var path_1 = tslib_1.__importDefault(require("path"));
+var fs_extra_1 = tslib_1.__importDefault(require("fs-extra"));
+var base_1 = tslib_1.__importDefault(require("./base"));
 var tsconfig = {
     target: 'es5',
     module: 'commonjs',
@@ -22,12 +23,17 @@ var tsconfig = {
         '@/*': ['src/*'],
     },
 };
-var target = process.env.target || tsconfig.module || 'commonjs';
-// const exit = fse.pathExistsSync(path.resolve(base.cwd, 'tsconfig.json'));
-// if (exit) {
-//   const tsconfigJson = fse.readJSONSync(path.resolve(base.cwd, 'tsconfig.json'));
-//   tsconfig = { ...tsconfig, ...tsconfigJson.compilerOptions };
-// }
-exports.default = {
-    tsconfig: tslib_1.__assign(tslib_1.__assign({}, tsconfig), { module: target }),
-};
+function getTSConfig() {
+    var exit = fs_extra_1.default.pathExistsSync(path_1.default.resolve() + '/tsconfig.json');
+    if (exit) {
+        var tsconfigJson = fs_extra_1.default.readJSONSync(path_1.default.resolve() + '/tsconfig.json');
+        tsconfig = tslib_1.__assign(tslib_1.__assign({}, tsconfig), tsconfigJson.compilerOptions);
+    }
+    return tslib_1.__assign(tslib_1.__assign({}, tsconfig), { module: process.env.target || tsconfig.module || 'commonjs' });
+}
+exports.getTSConfig = getTSConfig;
+function useTypeScript() {
+    var packageJson = fs_extra_1.default.readJSONSync(path_1.default.resolve(base_1.default.cwd, 'package.json'));
+    return packageJson.devDependencies['typescript'] !== null;
+}
+exports.useTypeScript = useTypeScript;

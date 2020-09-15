@@ -1,7 +1,8 @@
 import base from './base';
+import { useTypeScript } from './target';
 
 export default {
-  source: base.esTemp,
+  source: useTypeScript() ? base.esTemp : base.dist,
   destination: base.esdoc,
   index: './README.md',
   package: './package.json',

@@ -9,7 +9,8 @@
   },
   "scripts": {
     "dev": "tsc --watch",
-    "build": ""
+    "build": "tsc",
+    "command": "./lib/index.js"
   },
   "_moduleAliases": {
     "@/config": "src/config"

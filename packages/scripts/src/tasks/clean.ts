@@ -1,8 +1,8 @@
 import del from 'del';
-import config from '../config';
+import { base, esdoc } from '../config';
 
 function clean(cb: () => void) {
-  del([config.base.esTemp, config.base.dist, config.esdoc.destination]);
+  del([base.esTemp, base.dist, base.types, esdoc.destination]);
   cb();
 }
 

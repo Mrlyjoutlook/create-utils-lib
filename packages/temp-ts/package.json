@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "utils-lib-scripts dev",
     "build": "utils-lib-scripts build",
-    "doc": "utils-lib-scripts doc"
+    "doc": "utils-lib-scripts doc",
+    "scripts": "utils-lib-scripts"
   },
   "dependencies": {
     "@create-utils-lib/scripts": "^0.0.1"

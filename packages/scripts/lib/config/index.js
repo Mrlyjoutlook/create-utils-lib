@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.env = exports.esdoc = exports.target = exports.base = void 0;
 var tslib_1 = require("tslib");
-var base_1 = tslib_1.__importDefault(require("./base"));
-var target_1 = tslib_1.__importDefault(require("./target"));
-var esdoc_1 = tslib_1.__importDefault(require("./esdoc"));
-var env_1 = tslib_1.__importDefault(require("./env"));
-exports.default = {
-    base: base_1.default,
-    target: target_1.default,
-    esdoc: esdoc_1.default,
-    env: env_1.default,
-};
+var base_1 = require("./base");
+Object.defineProperty(exports, "base", { enumerable: true, get: function () { return tslib_1.__importDefault(base_1).default; } });
+exports.target = tslib_1.__importStar(require("./target"));
+var esdoc_1 = require("./esdoc");
+Object.defineProperty(exports, "esdoc", { enumerable: true, get: function () { return tslib_1.__importDefault(esdoc_1).default; } });
+var env_1 = require("./env");
+Object.defineProperty(exports, "env", { enumerable: true, get: function () { return tslib_1.__importDefault(env_1).default; } });

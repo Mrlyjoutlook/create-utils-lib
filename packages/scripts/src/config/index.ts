@@ -1,11 +1,4 @@
-import base from "./base";
-import target from "./target";
-import esdoc from "./esdoc";
-import env from "./env";
-
-export default {
-  base,
-  target,
-  esdoc,
-  env,
-};
+export { default as base } from './base';
+export * as target from './target';
+export { default as esdoc } from './esdoc';
+export { default as env } from './env';

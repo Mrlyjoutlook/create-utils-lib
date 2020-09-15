@@ -1,28 +1,30 @@
 import { src, dest } from 'gulp';
 import { createProject } from 'gulp-typescript';
 import gulpIf from 'gulp-if';
-import config from '../config';
+import { target, base } from '../config';
+
+const tsconfig = target.getTSConfig();
 
 function build() {
   const tsProject = createProject({
-    ...config.target.tsconfig,
+    ...tsconfig,
     module: 'es6',
     declaration: false,
   });
 
   const tsProjectWithJs = createProject({
-    ...config.target.tsconfig,
+    ...tsconfig,
     allowJs: true,
     declaration: false,
   });
 
   return src('src/**/**/*', {
-    base: config.base.src,
+    base: base.src,
   })
-    .pipe(gulpIf(config.base.useTypeScript, tsProject()))
-    .pipe(dest(config.base.esTemp))
+    .pipe(gulpIf(target.useTypeScript(), tsProject()))
+    .pipe(dest(base.esTemp))
     .pipe(tsProjectWithJs())
-    .pipe(dest(config.base.dist));
+    .pipe(dest(base.distTarget));
 }
 
 export default build;
