@@ -1,16 +1,41 @@
 {
   "name": "@create-utils-lib/cli",
   "version": "0.0.1",
-  "main": "index.js",
+  "description": "create utils",
+  "author": "mr. lien <mr.lyj@outlook.com>",
+  "homepage": "https://github.com/Mrlyjoutlook/create-utils-lib/tree/develop/packages/cli#readme",
   "license": "MIT",
+  "main": "./lib/index.js",
+  "bin": {
+    "create-utils-lib": "./lib/index.js"
+  },
+  "files": [
+    "lib",
+    "temp-ts",
+    "temp-js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mrlyjoutlook/create-utils-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mrlyjoutlook/create-utils-lib/issues"
+  },
   "scripts": {
     "dev": "tsc --watch",
-    "build": ""
+    "build": "tsc"
   },
   "dependencies": {
     "commander": "^6.1.0",
+    "commitizen": "^4.2.1",
+    "cross-spawn": "^7.0.3",
     "fs-extra": "^9.0.1",
     "tslib": "^2.0.1",
     "typescript": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.2",
+    "@types/fs-extra": "^9.0.1",
+    "@types/node": "^14.10.1"
   }
 }

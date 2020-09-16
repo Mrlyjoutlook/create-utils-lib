@@ -9,5 +9,15 @@
   "scripts": {
     "script-dev": "yarn workspace @create-utils-lib/scripts dev",
     "create-dev": "yarn workspace @create-utils-lib/cli dev"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "commitizen": "^4.2.1",
+    "cz-lerna-changelog": "^2.0.3",
+    "eslint": "^7.9.0",
+    "lerna": "^3.22.1",
+    "prettier": "^2.1.1",
+    "yorkie": "^2.0.0"
   }
 }

@@ -1,9 +1,9 @@
 {
   "include": ["./src"],
   "compilerOptions": {
-    "target": "ES5",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "importHelpers": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -14,7 +14,10 @@
     "lib": ["esnext"],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
-    }
+      "@/*": ["src/*"],
+      "*": ["types/*"]
+    },
+    "rootDir": "./src",
+    "outDir": "./lib"
   }
 }

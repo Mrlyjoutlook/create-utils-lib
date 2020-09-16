@@ -8,7 +8,7 @@
  * addZero(11);
  * // '11'
  */
-function addZero(num: number) {
+function addZero() {
   return num >= 0 && num < 10 ? `0${num}` : String(num);
 }
 export default addZero;
