@@ -54,5 +54,6 @@
     "@types/gulp-connect": "^5.0.3",
     "@types/gulp-if": "^0.0.33",
     "@types/node": "^14.6.4"
-  }
+  },
+  "gitHead": "25f1a1df1f6963b7c861902cf56d180814309ed1"
 }
