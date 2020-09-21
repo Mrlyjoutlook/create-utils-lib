@@ -8,14 +8,22 @@
   "license": "MIT",
   "scripts": {
     "script-dev": "yarn workspace @create-utils-lib/scripts dev",
-    "create-dev": "yarn workspace @create-utils-lib/cli dev"
+    "create-dev": "yarn workspace @create-utils-lib/cli dev",
+    "commit": "git cz"
   },
-  "gitHooks": {},
+  "gitHooks": {
+    "commit-msg": "commitlint -E GIT_PARAMS"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "commitizen": "^4.2.1",
-    "cz-lerna-changelog": "^2.0.3",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.9.0",
     "lerna": "^3.22.1",
     "prettier": "^2.1.1",
