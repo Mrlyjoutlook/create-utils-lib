@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "name": "create-utils-lib",
+  "workspaces": [
+    "packages/*"
+  ],
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "script-dev": "yarn workspace @create-utils-lib/scripts dev",
+    "create-dev": "yarn workspace @create-utils-lib/cli dev",
+    "commit": "git cz",
+    "pv": "lerna version --conventional-commits"
+  },
+  "gitHooks": {
+    "commit-msg": "commitlint -E GIT_PARAMS"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "commitizen": "^4.2.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.9.0",
+    "lerna": "^3.22.1",
+    "prettier": "^2.1.1",
+    "yorkie": "^2.0.0"
+  }
+}
