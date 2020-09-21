@@ -12,9 +12,6 @@
     "commit": "git cz",
     "pv": "lerna version --conventional-commits"
   },
-  "gitHooks": {
-    "commit-msg": "commitlint -E GIT_PARAMS"
-  },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
