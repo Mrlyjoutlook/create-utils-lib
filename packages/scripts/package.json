@@ -3,16 +3,16 @@
   "version": "0.0.1",
   "description": "configuration and scripts for create utils",
   "author": "mr. lien <mr.lyj@outlook.com>",
-  "homepage": "https://github.com/Mrlyjoutlook/create-utils-lib/tree/develop/packages/cli#readme",
+  "homepage": "https://github.com/Mrlyjoutlook/create-utils-lib/tree/develop/packages/scripts#readme",
   "license": "MIT",
   "main": "./lib/index.js",
+  "types": "types/index.d.ts",
   "bin": {
     "utils-lib-scripts": "./lib/index.js"
   },
   "files": [
     "lib",
-    "temp-ts",
-    "temp-js"
+    "types"
   ],
   "repository": {
     "type": "git",

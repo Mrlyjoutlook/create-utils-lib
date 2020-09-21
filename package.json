@@ -9,7 +9,8 @@
   "scripts": {
     "script-dev": "yarn workspace @create-utils-lib/scripts dev",
     "create-dev": "yarn workspace @create-utils-lib/cli dev",
-    "commit": "git cz"
+    "commit": "git cz",
+    "publish": "lerna version --conventional-commits"
   },
   "gitHooks": {
     "commit-msg": "commitlint -E GIT_PARAMS"
