@@ -14,6 +14,15 @@
     "lib",
     "types"
   ],
+  "keywords": [
+    "utils",
+    "scripts",
+    "helpers"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mrlyjoutlook/create-utils-lib.git"
