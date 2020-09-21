@@ -1,15 +1,9 @@
 # create-utils-lib
 
-使用 **monorepo** 方式进行多包管理，`lerna` + `yarn` 方案
+使用 **monorepo** 方式进行多包管理，`lerna` + `yarn workspaces` 方案
 
 - yarn 管理包依赖
 - learn 管理版本发布
-
-初始化项目依赖
-
-```shell
-yarn install # 等价于 lerna bootstrap --npm-client yarn --use-workspaces
-```
 
 package.json 添加配置
 
@@ -21,11 +15,21 @@ package.json 添加配置
 }
 ```
 
-清除 package 依赖
+如果`package/*`内的包已有`node_modules`，需先清除
 
 ```shell
 lerna clean # 清理所有的node_modules
-yarn workspaces run clean # 执行所有package的clean操作
+```
+
+初始化安装项目依赖
+
+```shell
+# 1
+yarn install
+# 2
+yarn workspaces run install
+# 3
+lerna bootstrap --npm-client yarn --use-workspaces
 ```
 
 安装｜删除 依赖
