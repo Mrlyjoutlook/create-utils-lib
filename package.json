@@ -8,9 +8,10 @@
   "license": "MIT",
   "scripts": {
     "script-dev": "yarn workspace @create-utils-lib/scripts dev",
-    "create-dev": "yarn workspace @create-utils-lib/cli dev",
-    "commit": "git cz",
-    "pv": "lerna version --conventional-commits"
+    "cli-dev": "yarn workspace @create-utils-lib/cli dev",
+    "c": "git cz",
+    "v": "lerna version --conventional-commits",
+    "p": "lerna publish"
   },
   "githook": {
     "commit-msg": "commitlint -E GIT_PARAMS"

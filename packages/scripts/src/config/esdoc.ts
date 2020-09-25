@@ -8,6 +8,12 @@ export default {
   package: './package.json',
   plugins: [
     {
+      name: 'esdoc-importpath-plugin',
+      option: {
+        replaces: [{ from: base.constant.estemp + '/', to: '' }],
+      },
+    },
+    {
       name: 'esdoc-standard-plugin',
       option: {
         lint: {
@@ -20,5 +26,6 @@ export default {
         },
       },
     },
+    { name: 'esdoc-ecmascript-proposal-plugin', option: { all: true } },
   ],
 };

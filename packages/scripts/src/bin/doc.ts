@@ -3,7 +3,7 @@ import { esdoc } from '../tasks';
 
 export default function () {
   task(esdoc);
-  task('esdoc', function () {
-    console.log('esdoc');
+  task('doc')(function () {
+    console.log('doc');
   });
 }

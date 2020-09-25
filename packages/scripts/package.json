@@ -37,6 +37,8 @@
   "dependencies": {
     "commander": "^6.1.0",
     "esdoc": "^1.1.0",
+    "esdoc-ecmascript-proposal-plugin": "^1.0.0",
+    "esdoc-importpath-plugin": "^1.0.2",
     "esdoc-standard-plugin": "^1.0.0",
     "fs-extra": "^9.0.1",
     "gulp": "^4.0.2",

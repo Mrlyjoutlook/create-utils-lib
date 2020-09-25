@@ -5,10 +5,14 @@ var path_1 = tslib_1.__importDefault(require("path"));
 var target_1 = require("./target");
 var utils_1 = require("../utils");
 var cwd = path_1.default.resolve();
+var estemp = 'estemp';
 exports.default = {
+    constant: {
+        estemp: estemp,
+    },
     cwd: cwd,
     pkg: 'package.json',
-    esTemp: path_1.default.join(cwd, 'estemp'),
+    esTemp: path_1.default.join(cwd, estemp),
     esdoc: path_1.default.join(cwd, 'esdoc'),
     src: path_1.default.join(cwd, 'src'),
     dist: path_1.default.join(cwd, 'dist'),

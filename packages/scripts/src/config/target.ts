@@ -1,6 +1,5 @@
 import path from 'path';
 import fse from 'fs-extra';
-import base from './base';
 
 let tsconfig = {
   target: 'es5',
@@ -30,6 +29,10 @@ export function getTSConfig() {
       ...tsconfig,
       ...tsconfigJson.compilerOptions,
     };
+
+    if (!useTypeScript()) {
+      tsconfig.allowJs = true;
+    }
   }
 
   return {
@@ -39,6 +42,6 @@ export function getTSConfig() {
 }
 
 export function useTypeScript(): boolean {
-  const packageJson = fse.readJSONSync(path.resolve(base.cwd, 'package.json'));
+  const packageJson = fse.readJSONSync(path.resolve() + '/package.json');
   return packageJson.devDependencies['typescript'] !== null;
 }

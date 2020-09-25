@@ -1,4 +1,4 @@
-export default function getModuleName(module: string = '') {
+export default function getModuleName(module: string = ''): string {
   module = module.toLocaleUpperCase();
   if (module.includes('ES')) {
     return 'es';

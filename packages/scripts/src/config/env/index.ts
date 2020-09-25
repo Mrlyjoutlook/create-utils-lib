@@ -1,7 +1,2 @@
-import dev from './dev';
-import prod from './prod';
-
-export default {
-  dev,
-  prod,
-};
+export { default as dev } from './dev';
+export { default as prod } from './prod';

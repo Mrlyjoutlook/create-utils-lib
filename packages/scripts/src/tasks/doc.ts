@@ -1,7 +1,7 @@
 import path from 'path';
 import ESDoc from 'esdoc';
 import fse from 'fs-extra';
-import { esdoc, base } from '../config';
+import { base, esdoc } from '../config';
 
 let esdocConfig = {};
 

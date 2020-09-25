@@ -4,7 +4,6 @@ exports.useTypeScript = exports.getTSConfig = void 0;
 var tslib_1 = require("tslib");
 var path_1 = tslib_1.__importDefault(require("path"));
 var fs_extra_1 = tslib_1.__importDefault(require("fs-extra"));
-var base_1 = tslib_1.__importDefault(require("./base"));
 var tsconfig = {
     target: 'es5',
     module: 'commonjs',
@@ -28,12 +27,15 @@ function getTSConfig() {
     if (exit) {
         var tsconfigJson = fs_extra_1.default.readJSONSync(path_1.default.resolve() + '/tsconfig.json');
         tsconfig = tslib_1.__assign(tslib_1.__assign({}, tsconfig), tsconfigJson.compilerOptions);
+        if (!useTypeScript()) {
+            tsconfig.allowJs = true;
+        }
     }
     return tslib_1.__assign(tslib_1.__assign({}, tsconfig), { module: process.env.target || tsconfig.module || 'commonjs' });
 }
 exports.getTSConfig = getTSConfig;
 function useTypeScript() {
-    var packageJson = fs_extra_1.default.readJSONSync(path_1.default.resolve(base_1.default.cwd, 'package.json'));
+    var packageJson = fs_extra_1.default.readJSONSync(path_1.default.resolve() + '/package.json');
     return packageJson.devDependencies['typescript'] !== null;
 }
 exports.useTypeScript = useTypeScript;
